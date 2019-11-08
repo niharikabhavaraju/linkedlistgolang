@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // clue has hint to move forward in treasure hunt game until gold is found
 type clue struct {
@@ -76,7 +79,7 @@ func (t *treasurehunt) playGame() {
 
 	for {
 		t.nextClue()
-		if t.currentClue.name == "gold" {
+		if strings.EqualFold(t.currentClue.name, "gold") {
 			break
 		}
 		fmt.Println("go to next clue...")
